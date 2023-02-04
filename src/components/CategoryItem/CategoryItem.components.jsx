@@ -1,9 +1,9 @@
 import styles from './CategoryItem.module.scss';
 
 const CategoryItem = ({ category }) => {
-  const { id, title, imageUrl } = category;
+  const { title, imageUrl } = category;
   return (
-    <div className={styles.categoryContainer} key={id}>
+    <div className={styles.categoryContainer}>
       <div
         className={styles.backgroundImage}
         style={{
