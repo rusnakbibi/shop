@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+
 import { MainComponent } from '../../components';
 
 const Home = () => {
