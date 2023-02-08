@@ -7,3 +7,4 @@ export { default as SignInFormComponent } from './SignInForm';
 export { default as ProductCardComponent } from './ProductCard';
 export { default as CartIconComponent } from './CartIcon';
 export { default as CartDropdownComponent } from './CartDropdown';
+export { default as CartItemComponent } from './CartItem';
