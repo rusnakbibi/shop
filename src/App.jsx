@@ -3,20 +3,17 @@ import { Routes, Route } from 'react-router-dom';
 import {
   HomePage,
   NavigationComponent,
-  AuthenticationComponent,
+  AuthenticationPage,
+  ShopPage,
 } from './routes';
-
-const Shop = () => {
-  return <h1>I am the shop page</h1>;
-};
 
 const App = () => {
   return (
     <Routes>
       <Route path='/' element={<NavigationComponent />}>
         <Route index element={<HomePage />} />
-        <Route path='shop' element={<Shop />} />
-        <Route path='auth' element={<AuthenticationComponent />} />
+        <Route path='shop' element={<ShopPage />} />
+        <Route path='auth' element={<AuthenticationPage />} />
       </Route>
     </Routes>
   );
