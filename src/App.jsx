@@ -5,6 +5,7 @@ import {
   NavigationComponent,
   AuthenticationPage,
   ShopPage,
+  CheckoutPage,
 } from './routes';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path='shop' element={<ShopPage />} />
         <Route path='auth' element={<AuthenticationPage />} />
+        <Route path='checkout' element={<CheckoutPage />} />
       </Route>
     </Routes>
   );

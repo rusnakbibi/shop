@@ -11,7 +11,7 @@ import styles from './Navigation.module.scss';
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const { isCartOpen, cartCount } = useContext(CartContext);
 
   return (
     <Fragment>
