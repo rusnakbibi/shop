@@ -1,4 +1,4 @@
-export { default as CategoryItemComponent } from './CategoryItem';
+export { default as MainItemComponent } from './MainItem';
 export { default as MainComponent } from './Main';
 export { default as SignUpFormComponent } from './SignUpForm';
 export { default as FormInputComponent } from './FormInput';
@@ -9,3 +9,4 @@ export { default as CartIconComponent } from './CartIcon';
 export { default as CartDropdownComponent } from './CartDropdown';
 export { default as CartItemComponent } from './CartItem';
 export { default as CheckoutItemComponent } from './CheckoutItem';
+export { default as CategoryPreviewComponent } from './CategoryPreview';
