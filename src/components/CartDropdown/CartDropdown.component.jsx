@@ -5,7 +5,11 @@ import { CartContext } from '../../context';
 
 import { ButtonComponent, CartItemComponent } from '..';
 
-import styles from './CartDropdown.module.scss';
+import {
+  CartDropdownContainer,
+  CartItems,
+  Button,
+} from './CartDropdown.module.jsx';
 
 const CartDropdown = () => {
   const { cartItems, isCartOpen, setIsCartOpen } = useContext(CartContext);
@@ -18,16 +22,16 @@ const CartDropdown = () => {
   };
 
   return (
-    <div className={styles.cartDropdownContainer}>
-      <div className={styles.cartItems}>
+    <CartDropdownContainer>
+      <CartItems>
         {cartItems.map((item) => (
           <CartItemComponent key={item.id} cartItem={item} />
         ))}
-      </div>
+      </CartItems>
       <ButtonComponent onClick={goToCheckoutHandler}>
         GO TO CHECKOUT
       </ButtonComponent>
-    </div>
+    </CartDropdownContainer>
   );
 };
 

@@ -1,14 +1,14 @@
 import { MainItemComponent } from '..';
 
-import styles from './Main.module.scss';
+import { MainContainer } from './Main.module.jsx';
 
 const Main = ({ categories }) => {
   return (
-    <div className={styles.mainContainer}>
+    <MainContainer>
       {categories.map((category) => (
         <MainItemComponent category={category} key={category.id} />
       ))}
-    </div>
+    </MainContainer>
   );
 };
 

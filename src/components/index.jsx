@@ -4,7 +4,7 @@ export { default as SignUpFormComponent } from './SignUpForm';
 export { default as FormInputComponent } from './FormInput';
 export { default as ButtonComponent } from './Button';
 export { default as SignInFormComponent } from './SignInForm';
-export { default as ProductCardComponent } from './ProductCard';
+export { default as ProductCartComponent } from './ProductCard';
 export { default as CartIconComponent } from './CartIcon';
 export { default as CartDropdownComponent } from './CartDropdown';
 export { default as CartItemComponent } from './CartItem';

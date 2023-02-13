@@ -1,20 +1,19 @@
-import styles from './MainItem.module.scss';
+import {
+  MainItemContainer,
+  Body,
+  BackgroundImage,
+} from './MainItem.module.jsx';
 
 const MainItem = ({ category }) => {
   const { title, imageUrl } = category;
   return (
-    <div className={styles.mainItemContainer}>
-      <div
-        className={styles.backgroundImage}
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-        }}
-      />
-      <div className={styles.body}>
+    <MainItemContainer>
+      <BackgroundImage imageUrl={imageUrl} />
+      <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
-      </div>
-    </div>
+      </Body>
+    </MainItemContainer>
   );
 };
 
