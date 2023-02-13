@@ -1,13 +1,14 @@
-import {
-  MainItemContainer,
-  Body,
-  BackgroundImage,
-} from './MainItem.module.jsx';
+import { useNavigate } from 'react-router-dom';
+
+import { MainItemContainer, Body, BackgroundImage } from './MainItem.module';
 
 const MainItem = ({ category }) => {
-  const { title, imageUrl } = category;
+  const { title, imageUrl, route } = category;
+  const navigate = useNavigate();
+  const onNavigateHandler = () => navigate(route);
+
   return (
-    <MainItemContainer>
+    <MainItemContainer onClick={onNavigateHandler}>
       <BackgroundImage imageUrl={imageUrl} />
       <Body>
         <h2>{title}</h2>

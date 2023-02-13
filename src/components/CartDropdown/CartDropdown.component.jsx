@@ -8,7 +8,7 @@ import { ButtonComponent, CartItemComponent } from '..';
 import {
   CartDropdownContainer,
   CartItems,
-  Button,
+  EmptyMessage,
 } from './CartDropdown.module.jsx';
 
 const CartDropdown = () => {
@@ -24,9 +24,13 @@ const CartDropdown = () => {
   return (
     <CartDropdownContainer>
       <CartItems>
-        {cartItems.map((item) => (
-          <CartItemComponent key={item.id} cartItem={item} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((item) => (
+            <CartItemComponent key={item.id} cartItem={item} />
+          ))
+        ) : (
+          <EmptyMessage>Your cart is empty</EmptyMessage>
+        )}
       </CartItems>
       <ButtonComponent onClick={goToCheckoutHandler}>
         GO TO CHECKOUT
