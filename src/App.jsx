@@ -7,7 +7,7 @@ import {
   createUserDocumentFromAuth,
 } from './utils';
 
-import { setCurrentUser } from './store/user';
+import { setCurrentUser } from './store';
 
 import {
   HomePage,

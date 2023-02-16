@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { getCategoriesAndDocuments } from '../../utils';
-import { setCategories } from '../../store/categories';
+import { setCategories } from '../../store';
 
 import { CategoriesPreviewPage, CategoryPage } from '..';
 
