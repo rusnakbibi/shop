@@ -49,7 +49,6 @@ export function* signInWithEmail({ payload: { email, password } }) {
       email,
       password
     );
-    console.log(user);
     yield call(getSnapshotFromUserAuth, user);
   } catch (error) {
     yield put(signInFailed(error));
@@ -59,7 +58,6 @@ export function* signInWithEmail({ payload: { email, password } }) {
 export function* isUserAuthenticated() {
   try {
     const userAuth = yield call(getCurrentUser);
-    console.log(userAuth);
     if (!userAuth) return;
     yield call(getSnapshotFromUserAuth, userAuth);
   } catch (error) {
@@ -74,15 +72,10 @@ export function* signUp({ payload: { email, password, displayName } }) {
       email,
       password
     );
-
     yield put(signUpSuccess(user, { displayName }));
   } catch (error) {
     yield put(signUpFailed(error));
   }
-}
-
-export function* signInAfterSignUp({ payload: { user, additionalDetails } }) {
-  yield call(getSnapshotFromUserAuth, user, additionalDetails);
 }
 
 export function* signOut() {
@@ -90,16 +83,20 @@ export function* signOut() {
     yield call(signOutUser);
     yield put(signOutSuccess());
   } catch (error) {
-    yield put(signOutFailed());
+    yield put(signOutFailed(error));
   }
 }
 
-export function* onCheckUserSession() {
-  yield takeLatest(USER_ACTION_TYPES.CHECK_USER_SESSION, isUserAuthenticated);
+export function* signInAfterSignUp({ payload: { user, additionalDetails } }) {
+  yield call(getSnapshotFromUserAuth, user, additionalDetails);
 }
 
 export function* onGoogleSignInStart() {
   yield takeLatest(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START, signInWithGoogle);
+}
+
+export function* onCheckUserSession() {
+  yield takeLatest(USER_ACTION_TYPES.CHECK_USER_SESSION, isUserAuthenticated);
 }
 
 export function* onEmailSignInStart() {
@@ -111,7 +108,7 @@ export function* onSignUpStart() {
 }
 
 export function* onSignUpSuccess() {
-  yield takeLatest(USER_ACTION_TYPES.SIGN_IN_SUCCESS, signInAfterSignUp);
+  yield takeLatest(USER_ACTION_TYPES.SIGN_UP_SUCCESS, signInAfterSignUp);
 }
 
 export function* onSignOutStart() {
