@@ -2,12 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import {
-  onAuthStateChangedListener,
-  createUserDocumentFromAuth,
-} from './utils';
-
-import { setCurrentUser } from './store';
+import { checkUserSession } from './store';
 
 import {
   HomePage,
@@ -21,20 +16,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Create an unsubscribe function from the onAuthStateChangedListener callback
-    const unsubscribeFromAuthStateChangeListener = onAuthStateChangedListener(
-      (user) => {
-        if (user) {
-          createUserDocumentFromAuth(user);
-        }
-        dispatch(setCurrentUser(user));
-      }
-    );
-
-    // Unsubscribe every time the component unmounts
-    return () => {
-      unsubscribeFromAuthStateChangeListener();
-    };
+    dispatch(checkUserSession());
   }, [dispatch]);
 
   return (

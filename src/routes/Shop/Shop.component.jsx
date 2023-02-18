@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { fetchCategoriesStartAsync } from '../../store';
+import { fetchCategoriesStart } from '../../store';
 
 import { CategoriesPreviewPage, CategoryPage } from '..';
 
@@ -10,7 +10,7 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesStartAsync());
+    dispatch(fetchCategoriesStart());
   }, []);
 
   return (
