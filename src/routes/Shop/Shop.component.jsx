@@ -2,8 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getCategoriesAndDocuments } from '../../utils';
-import { setCategories } from '../../store';
+import { fetchCategoriesStartAsync } from '../../store';
 
 import { CategoriesPreviewPage, CategoryPage } from '..';
 
@@ -11,13 +10,9 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments();
-      dispatch(setCategories(categoriesArray));
-    };
+    dispatch(fetchCategoriesStartAsync());
+  }, []);
 
-    getCategoriesMap();
-  }, [dispatch]);
   return (
     <Routes>
       <Route index element={<CategoriesPreviewPage />} />

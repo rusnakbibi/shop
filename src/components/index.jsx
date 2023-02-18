@@ -10,3 +10,4 @@ export { default as CartDropdownComponent } from './CartDropdown';
 export { default as CartItemComponent } from './CartItem';
 export { default as CheckoutItemComponent } from './CheckoutItem';
 export { default as CategoryPreviewComponent } from './CategoryPreview';
+export { default as SpinnerComponent } from './Spinner';
