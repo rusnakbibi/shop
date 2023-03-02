@@ -5,7 +5,6 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import {
   selectCartTotalPrice,
   selectCurrentUser,
-  selectCartItems,
   clearAllItems,
 } from '../../store';
 
@@ -47,7 +46,7 @@ const PaymentForm = () => {
       paymentIntent: { client_secret },
     } = response;
 
-    dispatch(clearAllItems());
+    console.log(elements.getElement(CardElement));
 
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
@@ -61,10 +60,12 @@ const PaymentForm = () => {
     setIsProcessingPayment(false);
 
     if (paymentResult.error) {
-      alert(paymentResult.error);
+      alert(paymentResult.error.message);
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
         alert('Payment Successful');
+        dispatch(clearAllItems());
+        elements.getElement(CardElement).clear();
       }
     }
   };
