@@ -1,9 +1,11 @@
+import { ButtonData } from 'types/button.types';
+
 import {
   BaseButton,
   GoogleSignButton,
   InvertedButton,
   ButtonSpinner,
-} from './Button.module.jsx';
+} from './Button.style';
 
 export const BUTTON_TYPE_CLASSES = {
   base: 'base',
@@ -24,7 +26,7 @@ const Button = ({
   isLoading,
   disabled,
   ...otherProps
-}) => {
+}: ButtonData) => {
   const CustomButton = getButton(buttonType);
   return (
     <CustomButton disabled={disabled} {...otherProps}>

@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { selectCategoriesMap, selectCategoriesIsLoading } from '../../store';
+import { selectCategoriesMap, selectCategoriesIsLoading } from 'store';
 
 import { ProductCartComponent, SpinnerComponent } from '../../components';
 

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectCartItems, selectIsCartOpen, setIsCartOpen } from '../../store';
+import { selectCartItems, selectIsCartOpen, setIsCartOpen } from 'store';
 
 import { ButtonComponent, CartItemComponent } from '..';
 
@@ -9,11 +9,12 @@ import {
   CartDropdownContainer,
   CartItems,
   EmptyMessage,
-} from './CartDropdown.module.jsx';
+} from './CartDropdown.style';
 
 const CartDropdown = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+  console.log(cartItems);
   const isCartOpen = useSelector(selectIsCartOpen);
   const toggleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen));
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const CartDropdown = () => {
     <CartDropdownContainer>
       <CartItems>
         {cartItems.length ? (
-          cartItems.map((item) => (
+          cartItems.map((item: any) => (
             <CartItemComponent key={item.id} cartItem={item} />
           ))
         ) : (

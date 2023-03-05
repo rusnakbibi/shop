@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectCurrentUser, selectIsCartOpen, signOutStart } from '../../store';
+import { selectCurrentUser, selectIsCartOpen, signOutStart } from 'store';
 
 import { CartIconComponent, CartDropdownComponent } from '../../components';
 
