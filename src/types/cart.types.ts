@@ -1,4 +1,4 @@
-import { CategoryItem, ActionWithPayload } from './';
+import { CategoryItem } from './';
 
 export enum CART_ACTION_TYPES {
   SET_CART_ITEMS = 'cart/SET_CART_ITEMS',
@@ -12,10 +12,6 @@ export type CartItem = CategoryItem & {
 };
 
 export type CartState = {
-  isCartOpen: boolean;
-  cartItems: CartItem[];
+  readonly isCartOpen: boolean;
+  readonly cartItems: CartItem[];
 }
-
-export type setIsCartOpenAction = ActionWithPayload<CART_ACTION_TYPES.SET_IS_CART_OPEN, boolean>
-
-export type SetCartItemsAction = ActionWithPayload<CART_ACTION_TYPES.SET_CART_ITEMS, CartItem[]>;

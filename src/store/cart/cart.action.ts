@@ -4,8 +4,8 @@ import {
   CART_ACTION_TYPES,
   CartItem,
   CategoryItem,
-  setIsCartOpenAction,
-  SetCartItemsAction,
+  SetIsCartOpen,
+  SetCartItems,
 } from 'types';
 
 
@@ -50,10 +50,10 @@ const clearAll = (cartItems: CartItem[]): CartItem[] => cartItems = [];
 const clearCartItem = (cartItems: CartItem[], cartItemToClear: CartItem): CartItem[] =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 
-export const setIsCartOpen = withMatcher((value: boolean): setIsCartOpenAction =>
+export const setIsCartOpen = withMatcher((value: boolean): SetIsCartOpen =>
   createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, value));
 
-export const setCartItems = withMatcher((cartItems: CartItem[]) =>
+export const setCartItems = withMatcher((cartItems: CartItem[]): SetCartItems =>
   createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems)
 );
 
