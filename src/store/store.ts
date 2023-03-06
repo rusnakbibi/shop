@@ -6,8 +6,9 @@ import createSagaMiddleware from '@redux-saga/core';
 
 import { rootReducer } from './root-reducer';
 import { rootSaga } from './root-saga';
+import { ExtendedPersistConfig } from 'types/state.types';
 
-const persistConfig = {
+const persistConfig: ExtendedPersistConfig = {
   key: 'root',
   storage,
   blacklist: ['cart'],
@@ -17,14 +18,9 @@ const sagaMiddleware = createSagaMiddleware();
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middleWares = [
-  process.env.NODE_ENV === 'development' && logger,
-  sagaMiddleware,
-].filter(Boolean);
-
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: middleWares,
+  middleware: [logger, sagaMiddleware],
 });
 
 sagaMiddleware.run(rootSaga);

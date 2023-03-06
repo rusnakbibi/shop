@@ -7,3 +7,4 @@ export * from './category.types';
 export * from './firebase.types';
 export * from './user.types';
 export * from './user-action.types';
+export * from './state.types';
