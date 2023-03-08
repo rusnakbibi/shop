@@ -4,7 +4,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 import { selectCartTotalPrice, selectCurrentUser, clearAllItems } from 'store';
 
-import { BUTTON_TYPE_CLASSES } from '../Button';
+import { BUTTON_TYPE_CLASSES } from 'types/components.types';
 
 import {
   PaymentFormContainer,
