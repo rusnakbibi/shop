@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-import { selectCartTotalPrice, selectCurrentUser, clearAllItems } from 'store';
+import {
+  selectCartTotalPrice,
+  selectCurrentUser,
+  clearAllItems,
+  selectCartItems,
+} from 'store';
+import { isValidCardElement } from 'utils/stripe';
 
 import { BUTTON_TYPE_CLASSES } from 'types/components.types';
 
@@ -10,7 +16,7 @@ import {
   PaymentFormContainer,
   FormContainer,
   PaymentButton,
-} from './PaymentForm.module';
+} from './PaymentForm.styles';
 
 const PaymentForm = () => {
   const dispatch = useDispatch();
@@ -18,8 +24,9 @@ const PaymentForm = () => {
   const elements = useElements();
   const amount = useSelector(selectCartTotalPrice);
   const currentUser = useSelector(selectCurrentUser);
+  const cartItems = useSelector(selectCartItems);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
-  const paymentHandler = async (event) => {
+  const paymentHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
@@ -42,11 +49,13 @@ const PaymentForm = () => {
       paymentIntent: { client_secret },
     } = response;
 
-    console.log(elements.getElement(CardElement));
+    const cardDetails = elements.getElement(CardElement);
+
+    if (!isValidCardElement(cardDetails)) return;
 
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
-        card: elements.getElement(CardElement),
+        card: cardDetails,
         billing_details: {
           name: currentUser ? currentUser.displayName : 'Guest',
         },
@@ -60,8 +69,8 @@ const PaymentForm = () => {
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
         alert('Payment Successful');
-        dispatch(clearAllItems());
-        elements.getElement(CardElement).clear();
+        dispatch(clearAllItems(cartItems));
+        cardDetails.clear();
       }
     }
   };

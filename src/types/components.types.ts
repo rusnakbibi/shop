@@ -19,3 +19,6 @@ export type FormInputProps = {
   label: string;
 } & InputHTMLAttributes<HTMLInputElement>
 
+export type CategoryRouteParams = {
+  category: string;
+}

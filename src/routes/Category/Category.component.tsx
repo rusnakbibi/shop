@@ -3,17 +3,19 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { selectCategoriesMap, selectCategoriesIsLoading } from 'store';
+import { ProductCartComponent, SpinnerComponent } from 'components';
+import { CategoryRouteParams } from 'types/components.types';
 
-import { ProductCartComponent, SpinnerComponent } from '../../components';
-
-import { CategoryContainer, CategoryTitle } from './Category.module.jsx';
+import { CategoryContainer, CategoryTitle } from './Category.styles';
 
 const Category = () => {
-  const { category } = useParams();
+  const { category } = useParams<
+    keyof CategoryRouteParams
+  >() as CategoryRouteParams;
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
   console.log(isLoading);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
