@@ -36,3 +36,16 @@ export type CategoryPreviewProps = {
   products: CategoryItem[];
   key: string;
 }
+
+export type CategoryMain = Omit<Category, 'items'> & {
+  id: number;
+  route: string;
+}
+
+export type CategoryMainItemProps = {
+  category: CategoryMain;
+}
+
+export type ProductCardProps = {
+  product: CategoryItem;
+}

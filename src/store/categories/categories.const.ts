@@ -1,8 +1,6 @@
-import { MainItemComponent } from '..';
+import { CategoryMain } from 'types/category.types';
 
-import { MainContainer } from './Main.module.jsx';
-
-const categories = [
+export const categories: CategoryMain[] = [
   {
     id: 1,
     title: 'Hats',
@@ -34,15 +32,3 @@ const categories = [
     route: 'shop/mens',
   },
 ];
-
-const Main = () => {
-  return (
-    <MainContainer>
-      {categories.map((category) => (
-        <MainItemComponent category={category} key={category.id} />
-      ))}
-    </MainContainer>
-  );
-};
-
-export default Main;

@@ -1,8 +1,11 @@
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { MainItemContainer, Body, BackgroundImage } from './MainItem.module';
+import { CategoryMainItemProps } from 'types/category.types';
 
-const MainItem = ({ category }) => {
+import { MainItemContainer, Body, BackgroundImage } from './MainItem.styles';
+
+const MainItem: FC<CategoryMainItemProps> = ({ category }) => {
   const { title, imageUrl, route } = category;
   const navigate = useNavigate();
   const onNavigateHandler = () => navigate(route);

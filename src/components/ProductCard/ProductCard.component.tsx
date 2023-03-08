@@ -7,12 +7,14 @@ import {
   Footer,
   Name,
   Price,
-} from './ProductCard.module.jsx';
+} from './ProductCard.styles';
 
 import { BUTTON_TYPE_CLASSES } from 'types/button.types';
 import { ButtonComponent } from '..';
+import { FC } from 'react';
+import { ProductCardProps } from 'types/category.types.js';
 
-const ProductCart = ({ product }) => {
+const ProductCart: FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch();
   const { name, price, imageUrl } = product;
   const cartItems = useSelector(selectCartItems);

@@ -18,5 +18,4 @@ export type CartState = {
 
 export type CartItemProps = {
   cartItem: CartItem;
-  key: number;
 }
