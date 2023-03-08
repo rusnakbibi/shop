@@ -1,6 +1,6 @@
-import { SignUpFormComponent, SignInFormComponent } from '../../components';
+import { SignUpFormComponent, SignInFormComponent } from 'components';
 
-import { AuthenticationContainer } from './Authentication.module.jsx';
+import { AuthenticationContainer } from './Authentication.styles';
 
 const Authentication = () => {
   return (

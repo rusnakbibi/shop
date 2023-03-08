@@ -6,13 +6,14 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Elements } from '@stripe/react-stripe-js';
 
 import { store, persistor } from './store';
-import { stripePromise } from './utils/index.ts';
+import { stripePromise } from './utils';
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 import './index.scss';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root') as Element;
+const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
