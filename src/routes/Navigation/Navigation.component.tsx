@@ -4,15 +4,15 @@ import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser, selectIsCartOpen, signOutStart } from 'store';
 
-import { CartIconComponent, CartDropdownComponent } from '../../components';
+import { CartIconComponent, CartDropdownComponent } from 'components';
 
-import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
+import { ReactComponent as CrwnLogo } from 'assets/crown.svg';
 import {
   NavigationContainer,
   NavLinks,
   NavLink,
   LogoContainer,
-} from './Navigation.module.jsx';
+} from './Navigation.styles';
 
 const Navigation = () => {
   const dispatch = useDispatch();

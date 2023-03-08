@@ -31,10 +31,16 @@
       "utils/*": [
         "utils/*"
       ],
+      "assets/*": [
+        "assets/*"
+      ],
+      "components/*": [
+        "components/*"
+      ]
     },
   },
   "include": [
     "src",
-    "src/types"
+    "src/types/declaration.d.ts"
   ],
 }
