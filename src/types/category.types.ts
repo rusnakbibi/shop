@@ -30,3 +30,9 @@ export type CategoryMap = {
 export type CategoryRouteParams = {
   category: string;
 }
+
+export type CategoryPreviewProps = {
+  title: string;
+  products: CategoryItem[];
+  key: string;
+}
