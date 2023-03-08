@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { FormInputProps } from 'types/components.types';
+import { FormInputProps } from 'types/form.types';
 import { Group, FormInputLabel, Input } from './FormInput.styles';
 
 const FormInput: FC<FormInputProps> = ({ label, ...otherProps }) => {

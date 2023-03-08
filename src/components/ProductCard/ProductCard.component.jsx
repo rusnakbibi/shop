@@ -9,7 +9,7 @@ import {
   Price,
 } from './ProductCard.module.jsx';
 
-import { BUTTON_TYPE_CLASSES } from 'types/components.types';
+import { BUTTON_TYPE_CLASSES } from 'types/button.types';
 import { ButtonComponent } from '..';
 
 const ProductCart = ({ product }) => {

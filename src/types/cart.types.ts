@@ -15,3 +15,8 @@ export type CartState = {
   readonly isCartOpen: boolean;
   readonly cartItems: CartItem[];
 }
+
+export type CartItemProps = {
+  cartItem: CartItem;
+  key: number;
+}

@@ -26,3 +26,7 @@ export type CategoryState = {
 export type CategoryMap = {
   [key: string]: CategoryItem[];
 }
+
+export type CategoryRouteParams = {
+  category: string;
+}

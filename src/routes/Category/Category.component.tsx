@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { selectCategoriesMap, selectCategoriesIsLoading } from 'store';
 import { ProductCartComponent, SpinnerComponent } from 'components';
-import { CategoryRouteParams } from 'types/components.types';
+import { CategoryRouteParams } from 'types/category.types';
 
 import { CategoryContainer, CategoryTitle } from './Category.styles';
 

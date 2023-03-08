@@ -10,7 +10,7 @@ import {
 } from 'store';
 import { isValidCardElement } from 'utils/stripe';
 
-import { BUTTON_TYPE_CLASSES } from 'types/components.types';
+import { BUTTON_TYPE_CLASSES } from 'types/button.types';
 
 import {
   PaymentFormContainer,

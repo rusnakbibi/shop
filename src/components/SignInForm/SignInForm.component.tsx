@@ -4,7 +4,7 @@ import { AuthError, AuthErrorCodes } from 'firebase/auth';
 
 import { googleSignInStart, emailSignInStart } from 'store';
 
-import { BUTTON_TYPE_CLASSES } from 'types/components.types';
+import { BUTTON_TYPE_CLASSES } from 'types/button.types';
 import { FormInputComponent, ButtonComponent } from '..';
 
 import { SignInContainer, ButtonsContainer } from './SignInForm.styles';

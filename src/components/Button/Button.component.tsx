@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ButtonProps, BUTTON_TYPE_CLASSES } from 'types/components.types';
+import { ButtonProps, BUTTON_TYPE_CLASSES } from 'types/button.types';
 
 import {
   BaseButton,
